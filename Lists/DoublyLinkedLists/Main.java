@@ -26,11 +26,14 @@ public class Main {
         list.printList();
         System.out.println("Size: " + list.getSize());
         
-        list.removeFromFront();
-        list.printList();
+        // list.removeFromFront();
+        // list.printList();
 
-        list.removeFromEnd();
+        // list.removeFromEnd();
+        // list.printList();
+        // System.out.println("Size: " + list.getSize());
+
+        list.addBefore(e4, e3);
         list.printList();
-        System.out.println("Size: " + list.getSize());
     }
 }

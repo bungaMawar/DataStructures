@@ -77,6 +77,33 @@ public class EmployeeLinkedList {
         size++;
     }
 
+    public boolean addBefore(Employee e, Employee ee){
+        EmployeeNode newEmployee = new EmployeeNode(e);
+        EmployeeNode existingEmployee = head;
+
+        while(!existingEmployee.getEmployee().equals(ee) && existingEmployee != null){
+            existingEmployee = existingEmployee.getNext();
+        }
+        if(existingEmployee == null){
+            return false;
+        }
+
+        if(existingEmployee == head){
+            addToFront(e);
+            return true;
+        }
+
+        EmployeeNode prev = existingEmployee.getPrevious();
+        prev.setNext(newEmployee);
+        newEmployee.setPrevious(prev);
+                
+        existingEmployee.setPrevious(newEmployee);
+        newEmployee.setNext(existingEmployee); 
+        size++;
+        return true;       
+        
+    }
+
     public void printList(){
         EmployeeNode current = head;
         while(current != null){
