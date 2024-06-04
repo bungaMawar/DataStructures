@@ -17,32 +17,23 @@ public class Main {
     }
 
     public static boolean checkForPalindrome(String string) {
-        LinkedList<Character> palindrome = new LinkedList<Character>();
-        int x = 0;
+        LinkedList<Character> stack = new LinkedList<Character>();
+        StringBuilder nopunctuation = new StringBuilder(string.length());
+        String lowercase = string.toLowerCase();
 
-        for(int i = 0; i < string.length(); i++){
-            if(Character.isLetter(string.charAt(i))){
-                palindrome.push(Character.toLowerCase(string.charAt(i)));
+        for(int i = 0; i < lowercase.length(); i++){
+            char c = lowercase.charAt(i);
+            if(c >= 'a' && c <= 'z'){
+                nopunctuation.append(c);
+                stack.push(c);
             }
         }
 
-        char[] firsthalf = new char[palindrome.size()];
-        System.out.println("size: " + palindrome.size()/2);
-        for(x = 0; x <= palindrome.size()/2; x++){
-
-            firsthalf[x] = palindrome.pop();
+        StringBuilder reversed = new StringBuilder(stack.size());
+        while(!stack.isEmpty()){
+            reversed.append(stack.pop());
         }
-        System.out.println(palindrome);
-        System.out.println(firsthalf);
 
-        x--;
-        while(x >= 0){
-            System.out.println(palindrome.peek() + " - " + firsthalf[x]);
-            if(palindrome.pop() != firsthalf[x]){
-                return false;
-            }
-            x--;
-        }
-        return true;
+        return reversed.toString().equals(nopunctuation.toString());
     }
 }
