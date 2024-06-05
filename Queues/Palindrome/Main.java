@@ -1,5 +1,7 @@
 package Queues.Palindrome;
 
+import java.util.LinkedList;
+
 public class Main {
     public static void main(String[] args) {
         // should return true
@@ -15,21 +17,24 @@ public class Main {
     }
 
     private static boolean checkForPalindrome(String string){
-        String noPunctuation = new String();
-        for(int i = 0; i < string.length(); i++){
-            if(Character.isLetter(string.charAt(i))){
-                noPunctuation = noPunctuation + Character.toLowerCase(string.charAt(i));
+        LinkedList<Character> stack = new LinkedList<Character>();
+        LinkedList<Character> queue = new LinkedList<Character>();
+        String lowercase = string.toLowerCase();
+
+        for (int i = 0; i < lowercase.length(); i++){
+            char c = lowercase.charAt(i);
+            if(Character.isLetter(c)){
+                queue.addLast(c);
+                stack.push(c);
             }
         }
-        String comp = noPunctuation;
-        System.out.println(comp);
-        int count = 0;
-        for(int i = noPunctuation.length() - 1; i > 0; i--){
-            if(noPunctuation.charAt(i) != comp.charAt(count)){
+        
+        while(!stack.isEmpty()){
+            if(!stack.pop().equals(queue.removeFirst())){
                 return false;
             }
-            count++;
         }
+
         return true;
     }
 }
