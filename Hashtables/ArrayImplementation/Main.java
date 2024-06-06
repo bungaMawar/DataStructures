@@ -16,8 +16,12 @@ public class Main {
         ht.put("Wilson", e4);
         ht.put("End", e5);
 
-        ht.printHashTable();
 
         System.out.println("Retrive key: " + ht.get("Wilson"));
+
+        ht.remove("Jones");
+        ht.remove("Smith");
+        ht.printHashTable();
+
     }
 }
