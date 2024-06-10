@@ -55,7 +55,7 @@ public class ChainedHashtable {
     }
 
     private int hashKey(String key){
-        return key.length() % hashtable.length;
+        return Math.abs(key.hashCode() % hashtable.length);
     }
 
     public void printHashTable(){
