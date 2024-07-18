@@ -19,5 +19,9 @@ public class Main {
 
         System.out.println(tree.min());
         System.out.println(tree.max());
+
+        tree.delete(19);
+        tree.inOrder();
+        System.out.println();
     }
 }
