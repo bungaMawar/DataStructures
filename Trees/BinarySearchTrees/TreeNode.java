@@ -9,6 +9,16 @@ public class TreeNode {
         this.data = data;
     }
 
+    public void preOrder(){
+        System.out.print(data + " ");
+        if(left != null){
+            left.preOrder();
+        }
+        if(right != null){
+            right.preOrder();
+        }
+    }
+
     public int min(){
         if(left == null){
             return data;

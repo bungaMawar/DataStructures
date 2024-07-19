@@ -22,6 +22,8 @@ public class Main {
 
         tree.delete(19);
         tree.inOrder();
-        System.out.println();
+        System.out.println(); 
+
+        tree.preOrder();
     }
 }
