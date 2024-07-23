@@ -17,5 +17,7 @@ public class Main {
 
         heap.delete(1);
         heap.printHeap();
+
+        System.out.println(heap.peek());
     }
 }
